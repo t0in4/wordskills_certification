@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">RubinPazzles</string>
+    <string name="start">Doing good!</string>
+    <string name="button_back">Назад</string>
+</resources>
