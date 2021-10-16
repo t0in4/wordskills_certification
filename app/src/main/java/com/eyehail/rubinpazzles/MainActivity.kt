@@ -10,6 +10,7 @@ import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
     private var backPressedTime: Long = 0L
+    private lateinit var backToast: Toast //for closing toast  in one moment with closing app
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,12 +37,15 @@ class MainActivity : AppCompatActivity() {
     override fun onBackPressed() {
 
         if (backPressedTime + 2000 > System.currentTimeMillis()) {
+            backToast.cancel() //for close toast with application
 
             super.onBackPressed()
             return
         } else {
             //implement retrieving string from values (for translation in future)
-            Toast.makeText(getBaseContext(), getString(R.string.exitTwice), Toast.LENGTH_SHORT).show()
+                // use backtoast variable for just in time close
+            backToast = Toast.makeText(getBaseContext(), getString(R.string.exitTwice), Toast.LENGTH_SHORT)
+            backToast.show()
         }
             backPressedTime = System.currentTimeMillis()
         }
