@@ -19,5 +19,24 @@ class GameLevels : AppCompatActivity() {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
+
+
+
     }
+
+   // system back button changed - start
+    override fun onBackPressed() {
+        super.onBackPressed()
+        findViewById<Button>(R.id.button_back).setOnClickListener {
+
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+
+        }
+    }
+    //system back button changed - end
+
+
+
+
 }
