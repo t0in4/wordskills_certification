@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RubinPazzles">
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -24,8 +25,14 @@
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
-
-
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Level1"
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

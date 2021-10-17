@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.Window
 import android.view.WindowManager
 import android.widget.Button
+import android.widget.TextView
 
 class GameLevels : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,6 +20,12 @@ class GameLevels : AppCompatActivity() {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
+        // button for level 1 - start
+        findViewById<TextView>(R.id.textView1).setOnClickListener {
+            val intent = Intent(this, Level1::class.java)
+            startActivity(intent)
+        }
+        // button for level 1 - end
 
 
 
