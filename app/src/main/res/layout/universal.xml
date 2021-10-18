@@ -207,6 +207,15 @@
                     android:background="@drawable/style_img_universal"
                     android:layout_weight="1"
                     app:src="@drawable/imgtest" />
+                <ImageView
+                    android:id="@+id/image_right"
+                    android:layout_width="match_parent"
+                    android:layout_height="320dp"
+                    android:layout_marginRight="5dp"
+                    android:scaleType="centerCrop"
+                    android:background="@drawable/style_img_universal"
+                    android:layout_weight="1"
+                    app:src="@drawable/imgtest" />
             </LinearLayout>
         </LinearLayout>
 
