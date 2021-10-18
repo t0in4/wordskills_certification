@@ -206,7 +206,7 @@
                     android:scaleType="centerCrop"
                     android:background="@drawable/style_img_universal"
                     android:layout_weight="1"
-                    app:src="@drawable/imgtest" />
+                    app:srcCompat="@drawable/imgtest" />
                 <ImageView
                     android:id="@+id/image_right"
                     android:layout_width="match_parent"
@@ -215,7 +215,7 @@
                     android:scaleType="centerCrop"
                     android:background="@drawable/style_img_universal"
                     android:layout_weight="1"
-                    app:src="@drawable/imgtest" />
+                    app:srcCompat="@drawable/imgtest" />
             </LinearLayout>
         </LinearLayout>
 
