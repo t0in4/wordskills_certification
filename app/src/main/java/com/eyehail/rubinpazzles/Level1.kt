@@ -18,13 +18,13 @@ class Level1 : AppCompatActivity() {
 
         //making corners round to image_left - start
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            findViewById<ImageView>(R.id.image_left).clipToOutline = true
+            findViewById<ImageView>(R.id.image_left).setClipToOutline(true)
         }
         //making corners round to image_left - end
 
         //making corners round to image_left - start
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            findViewById<ImageView>(R.id.image_right).clipToOutline = true
+            findViewById<ImageView>(R.id.image_right).setClipToOutline(true)
         }
         //making corners round to image_left - end
 
