@@ -5,10 +5,15 @@
       <map>
         <entry key="app/src/main/res/drawable/button_gamelevels.xml" value="0.19791666666666666" />
         <entry key="app/src/main/res/drawable/button_stroke_black95_press_white.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/button_stroke_white_press_blue.xml" value="0.19791666666666666" />
         <entry key="app/src/main/res/drawable/style_btn_black60.xml" value="0.19791666666666666" />
         <entry key="app/src/main/res/drawable/style_btn_black95.xml" value="0.19791666666666666" />
         <entry key="app/src/main/res/drawable/style_btn_stroke_black95.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/style_btn_stroke_black95_press_white.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/style_btn_white.xml" value="0.19791666666666666" />
+        <entry key="app/src/main/res/drawable/style_btn_white_blue_press.xml" value="0.19791666666666666" />
+        <entry key="app/src/main/res/drawable/style_img_universal.xml" value="0.19791666666666666" />
+        <entry key="app/src/main/res/drawable/style_points.xml" value="0.19791666666666666" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.11" />
         <entry key="app/src/main/res/layout/gamelevels.xml" value="0.2" />
         <entry key="app/src/main/res/layout/universal.xml" value="0.1634963768115942" />

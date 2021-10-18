@@ -3,4 +3,5 @@
     <string name="start">Doing good!</string>
     <string name="exitTwice">Press twice to exit!</string>
     <string name="button_back">Назад</string>
+    <string name="level">Уровень:</string>
 </resources>
