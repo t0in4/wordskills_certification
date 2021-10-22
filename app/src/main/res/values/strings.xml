@@ -4,5 +4,6 @@
     <string name="exitTwice">Press twice to exit!</string>
     <string name="button_back">Назад</string>
     <string name="level">Уровень:</string>
+    <string name="level1">Уровень 1</string>
     <string name="textcontinue">Продолжить</string>
 </resources>

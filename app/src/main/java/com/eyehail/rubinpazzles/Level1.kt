@@ -12,16 +12,36 @@ import android.view.WindowManager
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import kotlin.properties.Delegates
+import kotlin.random.Random
 
 class Level1 : AppCompatActivity() {
     lateinit var dialog: Dialog
+    var numLeft: Int = 0 // variable for left picture
+    var numRight: Int = 0 //variable for right picture
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.universal)
+        //making text levels variable - start
+        val text_levels = findViewById<TextView>(R.id.text_levels)
+        text_levels.setText(R.string.level1) //setting text
+
+
+        //making text levels variable - end
+
         //set screen on whole screen - start
         val w: Window = getWindow()
         w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
         //set screen on whole screen - end
+
+        //button to back to main screen - start
+        findViewById<Button>(R.id.button_back).setOnClickListener {
+
+            val intent = Intent(this, GameLevels::class.java)
+            startActivity(intent)
+        }
+        //button to back to main screen - end
 
         //making corners round to image_left - start
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -60,8 +80,33 @@ class Level1 : AppCompatActivity() {
 
         dialog.show() // show dialog window
 
+        numLeft = (0 until 10).random()
+
+        findViewById<ImageView>(R.id.image_left).setImageResource(Array.images1[numLeft]) // set image to left
+        findViewById<TextView>(R.id.text_left).setText(Array.texts1[numLeft]) // set left text under image
+
+
+        numRight = (0 until 10).random()
+        while(numLeft==numRight) {
+            numRight = (0 until 10).random()
+        }
+        findViewById<ImageView>(R.id.image_right).setImageResource(Array.images1[numRight])
+        findViewById<TextView>(R.id.text_right).setText(Array.texts1[numRight])
+
 
 
 
     }
+
+    // system back button changed - start
+    override fun onBackPressed() {
+        super.onBackPressed()
+        findViewById<Button>(R.id.button_back).setOnClickListener {
+
+            val intent = Intent(this, GameLevels::class.java)
+            startActivity(intent)
+
+        }
+    }
+    //system back button changed - end
 }
