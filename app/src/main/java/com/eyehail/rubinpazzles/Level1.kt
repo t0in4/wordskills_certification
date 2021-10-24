@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Window
 import android.view.WindowManager
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
@@ -19,6 +21,7 @@ class Level1 : AppCompatActivity() {
     lateinit var dialog: Dialog
     var numLeft: Int = 0 // variable for left picture
     var numRight: Int = 0 //variable for right picture
+    var count: Int = 0  //variable for counter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,7 +29,6 @@ class Level1 : AppCompatActivity() {
         //making text levels variable - start
         val text_levels = findViewById<TextView>(R.id.text_levels)
         text_levels.setText(R.string.level1) //setting text
-
 
         //making text levels variable - end
 
@@ -70,6 +72,10 @@ class Level1 : AppCompatActivity() {
             dialog.dismiss() //close the dialog window
         }
         //button which closes the dialog window - end
+
+        //switch on animation - start
+        val a: Animation = AnimationUtils.loadAnimation(this, R.anim.alpha)
+        //switch on animation - end
 
         //button "Continue" - start
         val btncontinue = dialog.findViewById<Button>(R.id.btncontinue)
