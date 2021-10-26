@@ -81,6 +81,16 @@ class Level1 : AppCompatActivity() {
         }
         //button which closes the dialog window - end
 
+        //progress bar - start
+        var progress = mutableListOf(R.id.point1, R.id.point2, R.id.point3, R.id.point4,
+        R.id.point5, R.id.point6, R.id.point7, R.id.point8, R.id.point9, R.id.point10,
+        R.id.point11, R.id.point12, R.id.point13, R.id.point14, R.id.point15, R.id.point16,
+        R.id.point17, R.id.point18, R.id.point19, R.id.point20)
+
+
+
+        //progress bar - end
+
         //switch on animation - start
         val a: Animation = AnimationUtils.loadAnimation(this, R.anim.alpha)
         //switch on animation - end
@@ -117,6 +127,60 @@ class Level1 : AppCompatActivity() {
                     findViewById<ImageView>(R.id.image_left).setImageResource(R.drawable.img_false)
                 }
             } else if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                if (numLeft > numRight) {
+                    if (count < 20) {
+                        count = count+1
+                    }
+                    for (i in 0 until 20) {
+                        var tv = findViewById<TextView>(progress[i])
+                            tv.setBackgroundResource(R.drawable.style_points)
+                    }
+                    for (i in 0 until count) {
+                        var tv = findViewById<TextView>(progress[i])
+                            tv.setBackgroundResource(R.drawable.style_points_green)
+                    }
+                } else {
+                    //if left image is smaller
+                    if (count > 0) {
+                        if (count == 1) {
+                            count = 0
+                        } else {
+                            count = count - 2
+                        }
+                    }
+                    for (i in 0 until 19) {
+                        var tv = findViewById<TextView>(progress[i])
+                        tv.setBackgroundResource(R.drawable.style_points)
+                    }
+                    for (i in 0 until count) {
+                        var tv = findViewById<TextView>(progress[i])
+                        tv.setBackgroundResource(R.drawable.style_points_green)
+                    }
+                }
+                    //exit from level - start
+                    if (count == 20) {
+
+                    } else {
+                        numLeft = (0 until 10).random() //generating random
+
+                        findViewById<ImageView>(R.id.image_left).setImageResource(Array.images1[numLeft]) // set image to left
+                        findViewById<ImageView>(R.id.image_left).startAnimation(a)
+                        findViewById<TextView>(R.id.text_left).setText(Array.texts1[numLeft]) // set left text under image
+
+
+                        numRight = (0 until 10).random()
+                        while (numLeft == numRight) {
+                            numRight = (0 until 10).random()
+                        }
+                        findViewById<ImageView>(R.id.image_right).setImageResource(Array.images1[numRight])
+                        findViewById<ImageView>(R.id.image_right).startAnimation(a)
+                        findViewById<TextView>(R.id.text_right).setText(Array.texts1[numRight])
+                        findViewById<ImageView>(R.id.image_right).setEnabled(true) //enable right image
+
+                    }
+                    //exit from level - end
+
+
 
             }
             //return@setOnTouchListener true
