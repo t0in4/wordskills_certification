@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="levelone">Please, choose quick code. \nQuestions can repeat till 20 points</string>
+    <string name="leveloneEnd">Well done! Level complete…
+
+        Do you know that sum of opposite sides of dice has 7 points?</string>
 </resources>
