@@ -27,6 +27,13 @@ class GameLevels : AppCompatActivity() {
         }
         // button for level 1 - end
 
+        // button for level 2 - start
+        findViewById<TextView>(R.id.textView2).setOnClickListener {
+            val intent = Intent(this, Level2::class.java)
+            startActivity(intent)
+        }
+        // button for level 2 - end
+
 
 
     }

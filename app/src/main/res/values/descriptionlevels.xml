@@ -4,4 +4,5 @@
     <string name="leveloneEnd">Well done! Level complete…
 
         Do you know that sum of opposite sides of dice has 7 points?</string>
+    <string name="leveltwo">Please, choose bigger than rome number. \nQuestions can repeat till 20 points</string>
 </resources>

@@ -112,7 +112,7 @@ class Level1 : AppCompatActivity() {
         dialogEnd.requestWindowFeature(Window.FEATURE_NO_TITLE) //we don't need to use title
         dialogEnd.setContentView(R.layout.dialogend)// path to dialog window
         dialogEnd.getWindow()?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT)) // making dialog window background transparent
-        dialogEnd.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT)
+        dialogEnd.getWindow()?.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT)
         dialogEnd.setCancelable(false) // prevent user to close dialog window by system back button
         //button which closes the dialog window - start
         val btnclose2 = dialogEnd.findViewById<TextView>(R.id.btnclose)

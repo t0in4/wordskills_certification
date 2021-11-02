@@ -71,6 +71,19 @@ class Level2 : AppCompatActivity() {
         dialog.getWindow()
             ?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT)) // making dialog window background transparent
         dialog.setCancelable(false) // prevent user to close dialog window by system back button
+
+        // programmatically setting image into the dialog window - start
+        //findViewById<ImageView>(R.id.previewimg)?.setImageResource(R.drawable.previewimg2)
+        // above code without if not null checker, return a java.lang.RuntimeException: Unable to start activity java.lang.NullPointerException
+        val dialogImageLevelTwo = findViewById<ImageView>(R.id.previewimg)
+        if (dialogImageLevelTwo != null) dialogImageLevelTwo.setImageResource(R.drawable.previewimgtwo)
+
+        //programmatically setting image into the dialog window - end
+        
+        // programmatically setting description into the dialog windwo - start
+        if (findViewById<TextView>(R.id.textdescription) != null) findViewById<TextView>(R.id.textdescription).setText(R.string.leveltwo)
+        // programmatically setting description into the dialog window - end
+
         //button which closes the dialog window - start
         val btnclose = dialog.findViewById<TextView>(R.id.btnclose)
         btnclose.setOnClickListener {
