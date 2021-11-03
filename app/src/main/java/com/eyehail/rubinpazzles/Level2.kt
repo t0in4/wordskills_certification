@@ -2,9 +2,11 @@ package com.eyehail.rubinpazzles
 
 import android.annotation.SuppressLint
 import android.app.Dialog
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.graphics.drawable.Drawable
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -17,6 +19,8 @@ import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat
 import kotlin.properties.Delegates
 import kotlin.random.Random
 
@@ -75,13 +79,26 @@ class Level2 : AppCompatActivity() {
         // programmatically setting image into the dialog window - start
         //findViewById<ImageView>(R.id.previewimg)?.setImageResource(R.drawable.previewimg2)
         // above code without if not null checker, return a java.lang.RuntimeException: Unable to start activity java.lang.NullPointerException
-        val dialogImageLevelTwo = findViewById<ImageView>(R.id.previewimg)
-        if (dialogImageLevelTwo != null) dialogImageLevelTwo.setImageResource(R.drawable.previewimgtwo)
+        //val dialogImageLevelTwo = findViewById<ImageView>(R.id.previewimg)
+        //if (findViewById<ImageView>(R.id.previewimg) != null) findViewById<ImageView>(R.id.previewimg).setImageDrawable(resources.getDrawable(R.drawable.previewimgtwo))
+
+        //val myImage: Drawable? = ResourcesCompat.getDrawable(resources, R.drawable.previewimgtwo, null)
+        /*val myImage = getResources().getIdentifier("com.eyehail.rubinpazzles:drawable/" + "previewimgtwo", null, null)
+val leveltwodialog = findViewById<ImageView>(R.id.previewimg)
+        leveltwodialog.setImageResource(myImage)*/
+        /*val imageView = ImageView(this).apply {
+            setImageResource(R.drawable.previewimgtwo)
+        }
+        findViewById<ImageView>(R.id.previewimg).setImageResource(R.drawable.previewimgtwo)*/
+        val imageView = ImageChanger(R.drawable.previewimgtwo)
+        val myImage = dialog.findViewById<ImageView>(R.id.previewimg)
+        myImage.setImageResource(R.drawable.previewimgtwo)
 
         //programmatically setting image into the dialog window - end
         
         // programmatically setting description into the dialog windwo - start
-        if (findViewById<TextView>(R.id.textdescription) != null) findViewById<TextView>(R.id.textdescription).setText(R.string.leveltwo)
+         dialog.findViewById<TextView>(R.id.textdescription).setText(resources.getText(R.string.leveltwo))
+        //findViewById<TextView>(R.id.textdescription).setText(resources.getText(R.string.leveltwo))
         // programmatically setting description into the dialog window - end
 
         //button which closes the dialog window - start
@@ -119,16 +136,16 @@ class Level2 : AppCompatActivity() {
 
         numLeft = (0 until 10).random()
 
-        findViewById<ImageView>(R.id.image_left).setImageResource(Array.images1[numLeft]) // set image to left
-        findViewById<TextView>(R.id.text_left).setText(Array.texts1[numLeft]) // set left text under image
+        findViewById<ImageView>(R.id.image_left).setImageResource(Array.images2[numLeft]) // set image to left
+        findViewById<TextView>(R.id.text_left).setText(Array.texts2[numLeft]) // set left text under image
 
 
         numRight = (0 until 10).random()
         while (numLeft == numRight) {
             numRight = (0 until 10).random()
         }
-        findViewById<ImageView>(R.id.image_right).setImageResource(Array.images1[numRight])
-        findViewById<TextView>(R.id.text_right).setText(Array.texts1[numRight])
+        findViewById<ImageView>(R.id.image_right).setImageResource(Array.images2[numRight])
+        findViewById<TextView>(R.id.text_right).setText(Array.texts2[numRight])
 
         //making left picture clickable - start
         findViewById<ImageView>(R.id.image_left).setOnTouchListener { view, motionEvent ->
@@ -176,18 +193,18 @@ class Level2 : AppCompatActivity() {
                     } else {
                         numLeft = (0 until 10).random() //generating random
 
-                        findViewById<ImageView>(R.id.image_left).setImageResource(Array.images1[numLeft]) // set image to left
+                        findViewById<ImageView>(R.id.image_left).setImageResource(Array.images2[numLeft]) // set image to left
                         findViewById<ImageView>(R.id.image_left).startAnimation(a)
-                        findViewById<TextView>(R.id.text_left).setText(Array.texts1[numLeft]) // set left text under image
+                        findViewById<TextView>(R.id.text_left).setText(Array.texts2[numLeft]) // set left text under image
 
 
                         numRight = (0 until 10).random()
                         while (numLeft == numRight) {
                             numRight = (0 until 10).random()
                         }
-                        findViewById<ImageView>(R.id.image_right).setImageResource(Array.images1[numRight])
+                        findViewById<ImageView>(R.id.image_right).setImageResource(Array.images2[numRight])
                         findViewById<ImageView>(R.id.image_right).startAnimation(a)
-                        findViewById<TextView>(R.id.text_right).setText(Array.texts1[numRight])
+                        findViewById<TextView>(R.id.text_right).setText(Array.texts2[numRight])
                         findViewById<ImageView>(R.id.image_right).setEnabled(true) //enable right image
 
                     }
@@ -249,18 +266,18 @@ class Level2 : AppCompatActivity() {
                 } else {
                     numLeft = (0 until 10).random() //generating random
 
-                    findViewById<ImageView>(R.id.image_left).setImageResource(Array.images1[numLeft]) // set image to left
+                    findViewById<ImageView>(R.id.image_left).setImageResource(Array.images2[numLeft]) // set image to left
                     findViewById<ImageView>(R.id.image_left).startAnimation(a)
-                    findViewById<TextView>(R.id.text_left).setText(Array.texts1[numLeft]) // set left text under image
+                    findViewById<TextView>(R.id.text_left).setText(Array.texts2[numLeft]) // set left text under image
 
 
                     numRight = (0 until 10).random()
                     while (numLeft == numRight) {
                         numRight = (0 until 10).random()
                     }
-                    findViewById<ImageView>(R.id.image_right).setImageResource(Array.images1[numRight])
+                    findViewById<ImageView>(R.id.image_right).setImageResource(Array.images2[numRight])
                     findViewById<ImageView>(R.id.image_right).startAnimation(a)
-                    findViewById<TextView>(R.id.text_right).setText(Array.texts1[numRight])
+                    findViewById<TextView>(R.id.text_right).setText(Array.texts2[numRight])
                     findViewById<ImageView>(R.id.image_left).setEnabled(true) //enable left image
 
                 }
