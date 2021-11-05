@@ -26,6 +26,7 @@ import kotlin.random.Random
 
 class Level2 : AppCompatActivity() {
     lateinit var dialog: Dialog
+    lateinit var dialogEnd: Dialog
     var numLeft: Int = 0 // variable for left picture
     var numRight: Int = 0 //variable for right picture
     var count: Int = 0  //variable for counter
@@ -75,6 +76,11 @@ class Level2 : AppCompatActivity() {
         dialog.getWindow()
             ?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT)) // making dialog window background transparent
         dialog.setCancelable(false) // prevent user to close dialog window by system back button
+        // new knowledge - start
+
+
+
+        // new knowledge - end
 
         // programmatically setting image into the dialog window - start
         //findViewById<ImageView>(R.id.previewimg)?.setImageResource(R.drawable.previewimg2)
@@ -134,6 +140,55 @@ val leveltwodialog = findViewById<ImageView>(R.id.previewimg)
 
         dialog.show() // show dialog window
 
+        //______________________________
+        //end dialog window - start
+        //calling dialog window - start
+        dialogEnd = Dialog(this) //creating new dialog window
+        dialogEnd.requestWindowFeature(Window.FEATURE_NO_TITLE) //we don't need to use title
+        dialogEnd.setContentView(R.layout.dialogend)// path to dialog window
+        dialogEnd.getWindow()?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT)) // making dialog window background transparent
+        dialogEnd.getWindow()?.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT)
+        dialogEnd.setCancelable(false) // prevent user to close dialog window by system back button
+        dialogEnd.findViewById<TextView>(R.id.textdescriptionEnd).setText(R.string.leveltwoEnd)
+        //button which closes the dialog window - start
+        val btnclose2 = dialogEnd.findViewById<TextView>(R.id.btnclose)
+        btnclose2.setOnClickListener {
+            val intent = Intent(this, Level2::class.java)
+            startActivity(intent)
+            finish() //close this class
+            dialogEnd.dismiss() //close the dialog window
+        }
+        //button which closes the dialog window - end
+
+        //progress bar - start
+        /* var progress = mutableListOf(R.id.point1, R.id.point2, R.id.point3, R.id.point4,
+             R.id.point5, R.id.point6, R.id.point7, R.id.point8, R.id.point9, R.id.point10,
+             R.id.point11, R.id.point12, R.id.point13, R.id.point14, R.id.point15, R.id.point16,
+             R.id.point17, R.id.point18, R.id.point19, R.id.point20)*/
+
+
+
+        //progress bar - end
+
+        /*//switch on animation - start
+        val a: Animation = AnimationUtils.loadAnimation(this, R.anim.alpha)
+        //switch on animation - end*/
+
+        //button "Continue" - start
+        val btncontinue2 = dialogEnd.findViewById<Button>(R.id.btncontinue)
+        btncontinue2.setOnClickListener {
+            var intent = Intent(this, Level2::class.java)
+            startActivity(intent)
+            finish()
+            dialogEnd.dismiss() //closing dialog window
+        }
+        //button "Continue" - end
+
+
+
+        //end dialog window - end
+        //___________________________________________
+
         numLeft = (0 until 10).random()
 
         findViewById<ImageView>(R.id.image_left).setImageResource(Array.images2[numLeft]) // set image to left
@@ -189,6 +244,7 @@ val leveltwodialog = findViewById<ImageView>(R.id.previewimg)
                 }
                     //exit from level - start
                     if (count == 20) {
+                        dialogEnd.show()
 
                     } else {
                         numLeft = (0 until 10).random() //generating random
@@ -262,6 +318,7 @@ val leveltwodialog = findViewById<ImageView>(R.id.previewimg)
                 }
                 //exit from level - start
                 if (count == 20) {
+                    dialogEnd.show()
 
                 } else {
                     numLeft = (0 until 10).random() //generating random

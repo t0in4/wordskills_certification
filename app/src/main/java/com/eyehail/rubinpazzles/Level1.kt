@@ -116,8 +116,8 @@ class Level1 : AppCompatActivity() {
         dialogEnd.setCancelable(false) // prevent user to close dialog window by system back button
         //button which closes the dialog window - start
         val btnclose2 = dialogEnd.findViewById<TextView>(R.id.btnclose)
-        btnclose.setOnClickListener {
-            val intent = Intent(this, GameLevels::class.java)
+        btnclose2.setOnClickListener {
+            val intent = Intent(this, Level2::class.java)
             startActivity(intent)
             finish() //close this class
             dialogEnd.dismiss() //close the dialog window
